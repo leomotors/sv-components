@@ -1,3 +1,7 @@
-# svelte-vercel
+# @leomotors/sv-components
 
-Template for making SSR SveltKit Website, to be deployed at Vercel
+My personal UI/Components Library
+
+## Components
+
+- NavBar
