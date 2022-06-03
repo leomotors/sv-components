@@ -13,4 +13,9 @@
   <p class="text-xl text-center mt-3">
     Apart from this, you can also look at sauce code for all props
   </p>
+
+  <p class="text-xl my-3">
+    Note: NavBar colors maybe broken because GitHub Pages is not using absolute
+    path and SvelteKit have problems with those, and I'm lazy to fix it
+  </p>
 </main>
