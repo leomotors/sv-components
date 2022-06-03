@@ -7,7 +7,21 @@
 
   export let routes: Record<string, string>;
   export let useLightDark = false;
-  export let dark = false;
+  export let defaultDark = true;
+  export let dark = defaultDark;
+  export let popupOnOffset = "right-8";
+  export let popupOffOffset = "-right-28";
+
+  interface ColorsProp {
+    bgUnselected?: string;
+    bgSelected?: string;
+    bgMenu?: string;
+    bgFlyout?: string;
+    mobileSelected?: string;
+    mobileUnselected?: string;
+  }
+
+  export let colors: ColorsProp = {};
 
   function toggleDark() {
     dark = !dark;
@@ -21,10 +35,9 @@
 
     const prefered =
       localStorage.getItem("dark") ??
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? true
-        : false;
-    if (prefered) dark = true;
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    if (prefered && prefered == "true") dark = true;
     else dark = false;
   });
 </script>
@@ -52,8 +65,11 @@
               ? $page.url.pathname == '/'
               : $page.url.pathname == '/' + url
           )
-            ? 'bg-slate-400 dark:bg-slate-800 cursor-default'
-            : 'hover:bg-slate-300 dark:hover:bg-slate-700'}"
+            ? `${
+                colors.bgSelected ?? 'bg-slate-400 dark:bg-slate-800'
+              } cursor-default`
+            : colors.bgUnselected ??
+              'hover:bg-slate-300 dark:hover:bg-slate-700'}"
           href={url}
         >
           {name}
@@ -63,7 +79,8 @@
 
     <!-- Mobile Menu -->
     <div
-      class="inline sm:hidden bg-slate-200 dark:bg-slate-800 hover:bg-slate-400 dark:hover:bg-slate-600 p-2 rounded transition-all"
+      class="inline sm:hidden {colors.bgMenu ??
+        'bg-slate-200 dark:bg-slate-800 hover:bg-slate-400 dark:hover:bg-slate-600'} p-2 rounded transition-all"
       on:click={() => setTimeout(() => (popup = !popup), 10)}
     >
       <!-- https://icons.getbootstrap.com/icons/list -->
@@ -84,9 +101,10 @@
 
   <!-- Flying for Mobile -->
   <div
-    class="bg-slate-200 dark:bg-slate-800 rounded flex flex-col {popup
-      ? 'right-8 opacity-100'
-      : '-right-28 opacity-0'} absolute top-4 p-2 transition-all"
+    class="{colors.bgFlyout ??
+      'bg-slate-200 dark:bg-slate-800'} rounded flex flex-col {popup
+      ? `${popupOnOffset} opacity-100`
+      : `${popupOffOffset} opacity-0`} absolute top-4 p-2 transition-all"
   >
     {#each Object.entries(routes) as [url, name]}
       <a
@@ -95,8 +113,8 @@
             ? $page.url.pathname == '/'
             : $page.url.pathname == '/' + url
         )
-          ? 'text-pink-500'
-          : ''} p-2 rounded transition-all"
+          ? colors.mobileSelected ?? 'text-pink-500'
+          : colors.mobileUnselected ?? ''} p-2 rounded transition-all"
         href={url}
       >
         {name}
