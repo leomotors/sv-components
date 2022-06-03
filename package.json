@@ -1,7 +1,7 @@
 {
   "name": "@leomotors/sv-components",
   "description": "My personal UI/Components Library",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "author": "Leomotors",
   "repository": "https://github.com/Leomotors/sv-components",

@@ -30,14 +30,14 @@
 </script>
 
 <nav
-  class="w-4/5 lg:w-2/3 mx-auto h-32 flex flex-row items-center justify-between select-none"
+  class="w-4/5 lg:w-2/3 mx-auto h-32 flex flex-row items-center justify-between select-none text-black dark:text-white"
 >
   <slot name="left">
     <p>Your Logo Here Please</p>
   </slot>
 
   <!-- Desktop Nav -->
-  <div class="right flex flex-row gap-4 dark:text-white">
+  <div class="right flex flex-row gap-4">
     {#if useLightDark}
       <button on:click={toggleDark}>
         <LightDark {dark} />
@@ -61,9 +61,9 @@
       {/each}
     </div>
 
-    <!-- Mobile Nav -->
+    <!-- Mobile Menu -->
     <div
-      class="inline sm:hidden bg-slate-200 dark:bg-slate-800 hover:bg-slate-600 dark:hover:bg-slate-400 p-2 rounded"
+      class="inline sm:hidden bg-slate-200 dark:bg-slate-800 hover:bg-slate-400 dark:hover:bg-slate-600 p-2 rounded transition-all"
       on:click={() => setTimeout(() => (popup = !popup), 10)}
     >
       <!-- https://icons.getbootstrap.com/icons/list -->
