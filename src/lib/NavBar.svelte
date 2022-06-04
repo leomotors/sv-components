@@ -70,6 +70,7 @@
               } cursor-default`
             : colors.bgUnselected ??
               'hover:bg-slate-300 dark:hover:bg-slate-700'}"
+          sveltekit:prefetch
           href={url}
         >
           {name}
@@ -115,6 +116,7 @@
         )
           ? colors.mobileSelected ?? 'text-pink-500'
           : colors.mobileUnselected ?? ''} p-2 rounded transition-all"
+        sveltekit:prefetch
         href={url}
       >
         {name}

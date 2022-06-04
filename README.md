@@ -9,3 +9,7 @@ My personal UI/Components Library
 ## Components
 
 - NavBar
+
+### Known Limitation
+
+- Website that does not use absolute path (ex. GitHub Pages) will not work well with this.

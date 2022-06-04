@@ -14,8 +14,12 @@
     Apart from this, you can also look at sauce code for all props
   </p>
 
-  <p class="text-xl my-3">
-    Note: NavBar colors maybe broken because GitHub Pages is not using absolute
-    path and SvelteKit have problems with those, and I'm lazy to fix it
-  </p>
+  <a
+    class="text-2xl my-4 text-blue-600"
+    href="https://github.com/Leomotors/sv-components"
+    target="_blank"
+    rel="noopener"
+  >
+    GitHub
+  </a>
 </main>
