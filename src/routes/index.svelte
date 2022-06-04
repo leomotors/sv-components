@@ -2,7 +2,7 @@
   <h1 class="text-4xl">Hello World</h1>
   <p class="text-3xl">What an amazing NavBar?</p>
 
-  <p class="text-center mt-6 text-xl">Here is my code</p>
+  <p class="mt-6 text-center text-xl">Here is my code</p>
 
   <img
     class="mx-auto"
@@ -10,12 +10,12 @@
     alt="Load Error: Either your browser or my code sucks"
   />
 
-  <p class="text-xl text-center mt-3">
+  <p class="mt-3 text-center text-xl">
     Apart from this, you can also look at sauce code for all props
   </p>
 
   <a
-    class="text-2xl my-4 text-blue-600"
+    class="my-4 text-2xl text-blue-600"
     href="https://github.com/Leomotors/sv-components"
     target="_blank"
     rel="noopener"
